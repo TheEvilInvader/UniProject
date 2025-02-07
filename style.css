@@ -120,29 +120,11 @@ width: 100%;
 border-bottom: 8px solid #000000;
 margin-top: 5px;
 }
-.TempSolution1
+.TempSolution
 {
   display: inline-flex;
   align-items: center; 
   margin-bottom: 0; 
-}
-.TempSolution2a 
-{
-  display: flex; 
-  align-items: flex-start; 
-  margin-top: 10px; 
-}
-
-.TempSolution2b 
-{
-  white-space: nowrap; 
-}
-
-.TempSolution2c 
-{
-  display: flex;
-  flex-direction: column; 
-  margin-left: 20px; 
 }
 
 .List1a 
@@ -200,6 +182,7 @@ margin-top: 5px;
 {
   color: #443ba8;
   font-size: 32px;
+  margin-left: 20px;
   margin-top: 5px; 
 }
 
@@ -214,9 +197,6 @@ margin-top: 5px;
   content: "•";
   color:#443ba8;
 }
-.List1b:first-of-type 
-{
-  margin-top: 0; 
-}
+
 /*---------Page1 and its variants------------------------------------------------------------------------------------------------*/
 /*---------Page2 and its variants------------------------------------------------------------------------------------------------*/
