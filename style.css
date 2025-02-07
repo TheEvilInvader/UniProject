@@ -106,7 +106,6 @@ a
 .SmallBox 
 {
   color: #ffffff;
-  text-align: center;
   font-family: "Futura PT", sans-serif;
   height: 75px;
   width: 700px;
@@ -118,7 +117,7 @@ a
 .BorderBox
 {
 width: 100%;
-border-bottom: 5px solid #000000;
+border-bottom: 8px solid #000000;
 margin-top: 5px;
 }
 .TempSolution1
@@ -184,6 +183,12 @@ margin-top: 5px;
   color:#443ba8;
 }
 
+.List1a:nth-child(4n-1)::before
+{
+  content: "•";
+  color:#c98cfc;
+}
+
 .List1a:nth-child(even)
 {
   margin-left: 359px; /* aligns with the start of the words before perfectly */
@@ -198,12 +203,17 @@ margin-top: 5px;
   margin-top: 5px; 
 }
 
-.List1b::before
+.List1b:nth-child(odd)::before
 {
   content: "•";
   color:#c98cfc;
 }
 
+.List1b:nth-child(even)::before
+{
+  content: "•";
+  color:#443ba8;
+}
 .List1b:first-of-type 
 {
   margin-top: 0; 
