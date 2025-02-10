@@ -1,0 +1,146 @@
+body,html 
+{
+    height: 100%;
+    margin: 0;
+    font-family: "Futura PT", sans-serif;
+}
+
+/*---------General boxes to be used----------------------------------------------------------------------------------------------*/
+.BigBox 
+{
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+    background-color: #ff2d84;
+    height: 650px;
+    width: 1200px;
+    border-radius: 10px;
+    border: 8px solid #000000;
+    margin-left: 200px;
+    margin-top: 20px;
+    position: absolute;
+    padding: 20px;
+}
+
+.SmallBox 
+{
+  color: #ffffff;
+  font-family: "Futura PT", sans-serif;
+  height: 75px;
+  width: 100%;
+  border-top: 8px solid #000000;
+  background-color: #4564E1;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.Conwayb 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://miro.medium.com/v2/1*lI0IaLqlpXjh96Z-_RX9Dw.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.Border 
+{
+    border-bottom: 3px solid #000000;
+    margin: 20px 0;
+}
+/*---------General boxes to be used----------------------------------------------------------------------------------------------*/
+/*---------Page 3 Boxes----------------------------------------------------------------------------------------------------------*/
+.TaskContainer 
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.TaskSection 
+{
+    flex: 1;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.TaskSection h2 
+{
+    color: #ffffff;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.TaskBox 
+{
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #000000;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.TaskBox input 
+{
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.TaskBox button 
+{
+    background-color: #4564E1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.TaskBox button:hover 
+{
+    background-color: #2a4bbf;
+}
+
+.TaskList 
+{
+    margin-top: 10px;
+    overflow-y: auto;
+    height: 280px;
+    flex-shrink: 0;
+}
+
+.TaskList div 
+{
+    display: grid;
+    grid-template-columns: 40px auto;
+    align-items: start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.TaskList input[type="checkbox"] 
+{
+    cursor: pointer;
+}
+
+.TaskList label 
+{
+    color: #443ba8;
+    font-size: 16px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+/*---------Page 3 Boxes----------------------------------------------------------------------------------------------------------*/

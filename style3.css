@@ -1,0 +1,186 @@
+body, html 
+{
+    height: 100%;
+    margin: 0;
+    font-family: "Futura PT", sans-serif;
+}
+
+/*---------General boxes to be used----------------------------------------------------------------------------------------------*/
+.BigBox 
+{
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+    background-color: #ff2d84;
+    height: 700px;
+    width: 1000px;
+    border-radius: 10px;
+    border: 8px solid #000000;
+    margin-left: 300px;
+    margin-top: 20px;
+    position: absolute;
+}
+
+.SmallBox 
+{
+  color: #ffffff;
+  font-family: "Futura PT", sans-serif;
+  height: 75px;
+  width: 100%;
+  border-top: 8px solid #000000;
+  background-color: #4564E1;
+  position: absolute;
+  bottom: 0px;
+}
+.Conwayb 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://miro.medium.com/v2/1*lI0IaLqlpXjh96Z-_RX9Dw.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+/*---------General boxes to be used----------------------------------------------------------------------------------------------*/
+/*---------Page 4 Boxes----------------------------------------------------------------------------------------------------------*/
+.ShopTitle 
+{
+    padding: 20px 0;
+    border-bottom: 4px solid #000000;
+    margin-bottom: 20px;
+}
+
+.ShopContainer 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    height: 540px;
+    margin-top: 0;
+    position: relative;
+}
+
+.ShopContainer::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 4px;
+    background-color: #000000;
+    transform: translateX(-50%);
+}
+
+.ShopContainer::after 
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    transform: translateY(-50%);
+}
+
+.LevelRequirement 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 24px;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.ShopSection 
+{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ShopContent 
+{
+    filter: blur(5px);
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.3;
+}
+
+
+.ShopContent.unlocked 
+{
+    filter: none;
+    opacity: 1;
+}
+
+.ShopContent.unlocked + .LevelRequirement 
+{
+    display: none;
+}
+
+.ShopContent h2 
+{
+    color: #443ba8;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ShopContent p 
+{
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.ShopControls 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+.ShopControls input,.ShopControls select
+{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.ShopControls button 
+{
+    background-color: #4564E1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ShopControls button:hover 
+{
+    background-color: #2a4bbf;
+}
+/*---------Page 4 Boxes----------------------------------------------------------------------------------------------------------*/

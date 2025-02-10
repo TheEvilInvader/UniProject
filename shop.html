@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>My Project - Shop</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+<div class="Conwayb"></div>
+<div id="3" class="BigBox"><u>Life Manager - Shop</u>
+    <div class="ShopContainer">
+        <div class="ShopSection" id="topLeft">
+            <div class="ShopContent" data-level="5">
+                <h2>Color Themes</h2>
+                <p>Level 5 Required</p>
+                <div class="ShopControls">
+                    <input type="color" id="bgColorPicker">
+                    <button onclick="setBackgroundColor()">Apply Color</button>
+                </div>
+            </div>
+        </div>
+        <div class="ShopSection" id="topRight">
+            <div class="ShopContent" data-level="10">
+                <h2>Custom Background</h2>
+                <p>Level 10 Required</p>
+                <div class="ShopControls">
+                    <input type="text" placeholder="Enter image URL..." id="bgImageInput">
+                    <button onclick="setCustomBackground()">Apply Background</button>
+                </div>
+            </div>
+        </div>
+        <div class="ShopSection" id="bottomLeft">
+            <div class="ShopContent" data-level="15">
+             <h2>Custom Styling</h2>
+                <p>Level 15 Required</p>
+                <div class="ShopControls">
+                    <select id="fontSelect">
+                        <option value="'Futura PT', sans-serif">Futura PT</option>
+                        <option value="Arial, sans-serif">Arial</option>
+                     <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                    </select>
+                    <button onclick="setCustomFont()">Apply Font</button>
+             </div>
+            </div>
+        </div>
+        <div class="ShopSection" id="bottomRight">
+             <div class="ShopContent" data-level="25">
+                <h2>Developer Console</h2>
+                <p>Level 25 Required</p>
+                <div class="ShopControls">
+                     <button onclick="window.location.href='devcon.html'">Access DevCon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id = 4; class = "SmallBox"> Copyright 2025 &copy; &nbsp; &nbsp; &nbsp;
+        <a href = "https://github.com/TheEvilInvader">
+        <img src="https://www.pngall.com/wp-content/uploads/13/Github-Logo.png" height = "50" width = "50" alt = "I stole this" /></a> 
+    </div>
+</div>
+<script src="shop.js"></script>
+</body>
+</html>
