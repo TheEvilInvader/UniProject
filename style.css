@@ -1,6 +1,6 @@
 body, html 
 {
-  height: 100%;
+  height: 94%;
   margin: 0;
 }
 
@@ -139,7 +139,7 @@ margin-top: 5px;
   width: 600px;
   border-radius: 10px;
   border: 8px solid #000000;
-  margin-left: 800px;
+  margin-left: 400px;
   margin-top: 75px;
 }
   
@@ -162,8 +162,8 @@ a
   width: 300px;
   border-radius: 5px;
   border: 4px solid #000000;
-  margin-left: 940px;
-  margin-top: 400px;
+  margin-left: 540px;
+  margin-top: 300px;
 }
   
 .TempSolution

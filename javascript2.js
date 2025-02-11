@@ -94,7 +94,7 @@ function addTaskEventListeners(taskItem, taskList, key)
         const difficulty = taskList.id.includes('easy') ? 25 : taskList.id.includes('medium') ? 50 : 75;
         if (deleteMode) 
         {
-            if (!checkbox.checked) 
+            if (!checkbox.checked) /* to be reviewed */
                 {removeExp(difficulty);}
             taskItem.remove();
             saveTasks(taskList, key);
