@@ -267,6 +267,29 @@ a
 {
   background-color: #2a4bbf;
 }
+.ResetButtonsC
+{
+  bottom: 450px;
+  left: 390px;
+  position: absolute;
+  z-index: 1;
+}
+
+.ResetButtonsC button 
+{
+  background-color: #4564E1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.ResetButtonsC button:hover 
+{
+  background-color: #2a4bbf;
+}
 /*---------Page1 and its variants------------------------------------------------------------------------------------------------*/
 /*---------Page2 and its variants------------------------------------------------------------------------------------------------*/
 
