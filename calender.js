@@ -8,34 +8,92 @@ const eventInput = document.getElementById("eventInput");
 const saveEventButton = document.getElementById("saveEvent");
 const closePopupButton = document.getElementById("closePopup");
 const eventList = document.getElementById("eventList");
+const toggleModeButton = document.getElementById("toggleModeButton");
 
 let currentDate = new Date();
 let selectedDay = null;
-let events = {};
+let events = JSON.parse(localStorage.getItem('events')) || {};
+let exp = parseInt(localStorage.getItem('exp')) || 0;
+let level = parseInt(localStorage.getItem('level')) || 1;
+let dailyExp = JSON.parse(localStorage.getItem('dailyExp')) || {};
+let checkedEvents = JSON.parse(localStorage.getItem('checkedEvents')) || {};
+let deleteMode = false;
 
-function renderCalendar() {
-    calendarGrid.innerHTML = ""; 
+function updateProgressBar() {
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const levelDisplay = document.getElementById("levelDisplay");
+
+    levelDisplay.textContent = level;
+
+    const progress = (exp % 100) / 100 * 360;
+    progressBar.style.background = `conic-gradient(#4564E1 ${progress}deg, #eee ${progress}deg 360deg)`;
+    progressText.textContent = `${exp % 100}/100`;
+}
+
+function addExp(amount, date) 
+{
+    if (!dailyExp[date]) 
+    {
+        dailyExp[date] = 0;
+    }
+    if (dailyExp[date] + amount <= 90) 
+    {
+        dailyExp[date] += amount;
+        exp += amount;
+        if (exp >= 100) 
+            {
+            level += 1;
+            exp = exp - 100;
+            alert(`Level Up! You are now level ${level}`);
+            }
+        localStorage.setItem('exp', exp);
+        localStorage.setItem('level', level);
+        updateProgressBar();
+    } 
+    else 
+    {  
+    alert("Daily exp limit reached (90 exp per day)");
+    return false;
+    }
+}
+
+function removeExp(amount, date) 
+{
+    if (dailyExp[date]) 
+    {
+        dailyExp[date] -= amount;
+        exp -= amount;
+        if (exp < 0) exp = 0;
+        localStorage.setItem('exp', exp);
+        updateProgressBar();
+    }
+}
+
+function renderCalendar() 
+{
+    calendarGrid.innerHTML = "";
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     currentMonth.textContent = `${new Intl.DateTimeFormat("en-US", { month: "long" }).format(currentDate)} ${year}`;
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
     daysOfWeek.forEach(day => {
         const dayHeader = document.createElement("div");
         dayHeader.textContent = day;
         dayHeader.style.fontWeight = 'bold';
         dayHeader.style.backgroundColor = '#4564E1';
         dayHeader.style.color = 'white';
-        calendarGrid.appendChild(dayHeader);
-    });
+        calendarGrid.appendChild(dayHeader);});
 
     for (let i = 0; i < firstDay; i++) 
     {
         const emptyCell = document.createElement("div");
-        emptyCell.style.backgroundColor = '#808080'; 
+        emptyCell.style.backgroundColor = '#808080';
         emptyCell.style.border = '8px solid #666666';
-        emptyCell.style.cursor = 'default'; 
+        emptyCell.style.cursor = 'default';
         calendarGrid.appendChild(emptyCell);
     }
 
@@ -51,51 +109,74 @@ function renderCalendar() {
         });
         calendarGrid.appendChild(dayCell);
     }
-
     const totalCells = calendarGrid.children.length;
     const remainingCells = Math.ceil(totalCells / 7) * 7 - totalCells;
-    for (let i = 0; i < remainingCells; i++) {
+    for (let i = 0; i < remainingCells; i++) 
+    {
         const emptyCell = document.createElement("div");
-        emptyCell.style.backgroundColor = '#808080'; 
+        emptyCell.style.backgroundColor = '#808080';
         emptyCell.style.border = '8px solid #666666';
-        emptyCell.style.cursor = 'default'; // 
+        emptyCell.style.cursor = 'default';
         calendarGrid.appendChild(emptyCell);
     }
 }
 
 function renderEventList() {
-    eventList.innerHTML = ""; 
+    eventList.innerHTML = "";
     if (events[selectedDay]) 
     {
         events[selectedDay].forEach((event, index) => {
             const eventItem = document.createElement("div");
             eventItem.innerHTML = `<input type="checkbox" id="event${index}"><label for="event${index}">${event}</label>`;
             const checkbox = eventItem.querySelector('input[type="checkbox"]');
-            checkbox.addEventListener('change', function(e) {
-                if (e.target.checked)  
+            if (dailyExp[selectedDay] && dailyExp[selectedDay] >= (index + 1) * 30) 
+            {checkbox.checked = true;}
+            checkbox.addEventListener('change', function(e) 
+            {
+                if (deleteMode) return;
+                if (e.target.checked) {addExp(30, selectedDay);} 
+                else {removeExp(30, selectedDay);}
+            });
+            eventItem.addEventListener('click', (e) => {
+                if (!deleteMode) return;
+                e.stopPropagation();
+                const contributed = dailyExp[selectedDay] >= (index + 1) * 30;
+                if (contributed) 
+                {removeExp(30, selectedDay);}
+                events[selectedDay].splice(index, 1);
+                const maxPossibleExp = events[selectedDay].length * 30;
+                if (dailyExp[selectedDay] > maxPossibleExp) 
                 {
-                    if (addCalendarExp(selectedDay, 30)) 
-                    {e.target.checked = true;}
-
-                    else   
-                    {
-                    e.target.checked = false;
-                    alert('Daily exp limit reached for this date (90 exp)');
-                    }
+                    const overExp = dailyExp[selectedDay] - maxPossibleExp;
+                    dailyExp[selectedDay] = maxPossibleExp;
+                    exp -= overExp;
+                    if (exp < 0) exp = 0;
+                    localStorage.setItem('exp', exp);
                 }
-                else    
-                {removeCalendarExp(selectedDay, 30);}
+                if (events[selectedDay].length === 0) 
+                {
+                    delete events[selectedDay];
+                    delete dailyExp[selectedDay];
+                }
+                localStorage.setItem('events', JSON.stringify(events));
+                localStorage.setItem('dailyExp', JSON.stringify(dailyExp));
+                renderEventList();
+                updateProgressBar();
             });
             eventList.appendChild(eventItem);
         });
     }
 }
 
+toggleModeButton.addEventListener('click', function() {
+    deleteMode = !deleteMode;
+    toggleModeButton.textContent = deleteMode ? "Normal Mode" : "Delete Mode";});
+
 function saveEvent() 
 {
     const eventText = eventInput.value.trim();
     if (eventText) 
-    {
+        {
         if (!events[selectedDay]) 
             {events[selectedDay] = [];}
         events[selectedDay].push(eventText);
@@ -106,15 +187,16 @@ function saveEvent()
 
 prevMonthButton.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-});
+    renderCalendar();});
 
 nextMonthButton.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-});
+    renderCalendar();});
 
 saveEventButton.addEventListener("click", saveEvent);
 
-closePopupButton.addEventListener("click", () => {eventPopup.style.display = "none";});
+closePopupButton.addEventListener("click", () => {
+    eventPopup.style.display = "none";});
+
 renderCalendar();
+updateProgressBar();

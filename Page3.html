@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-<div class="Conwayb"></div>
-<div id="3" class="BigBox"><u>To-Do List</u>  
-    <div id="4" class="Font">
+    <div class="Conwayb"></div>
+    <div id="3" class="BigBox"><u>To-Do List: Level: <span id="levelDisplay">1</span></u>  
+        <div id="4" class="Font">
         <div class="TaskContainer">
-            <div id = "Easy Tasks" class="TaskSection">
+                <div id = "Easy Tasks" class="TaskSection">
                 <h2>Easy</h2>
                 <div class="TaskBox" id="easyTasks">
-                <input type="text" id="easyInput" placeholder="Add an easy task...">
+                <input type="text" id="easyInput" placeholder="Add an easy task...(25exp)">
                 <button id="addEasyTask">Add Task</button>
                 <div class="TaskList" id="easyTaskList"></div>
                 </div>
@@ -21,7 +21,7 @@
             <div id = "Medium Tasks" class="TaskSection">
                 <h2>Medium</h2>
                 <div class="TaskBox" id="mediumTasks">
-                <input type="text" id="mediumInput" placeholder="Add a medium task...">
+                <input type="text" id="mediumInput" placeholder="Add a medium task...(50exp)">
                 <button id="addMediumTask">Add Task</button>
                 <div class="TaskList" id="mediumTaskList"></div>
                 </div>
@@ -29,18 +29,21 @@
             <div id = "Hard Tasks" class="TaskSection">
                 <h2>Hard</h2>
                 <div class="TaskBox" id="hardTasks">
-                <input type="text" id="hardInput" placeholder="Add a hard task...">
+                <input type="text" id="hardInput" placeholder="Add a hard task...(75exp)">
                 <button id="addHardTask">Add Task</button>
                 <div class="TaskList" id="hardTaskList"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div id = 4; class = "SmallBox"> Copyright 2025 &copy; &nbsp; &nbsp; &nbsp;
+    <div id = 4; class = "SmallBox"> <a href = "Page1b.html">Copyright 2025</a> &copy; &nbsp; &nbsp; &nbsp;
         <a href = "https://github.com/TheEvilInvader">
         <img src="https://www.pngall.com/wp-content/uploads/13/Github-Logo.png" height = "50" width = "50" alt = "I stolethis" /></a> 
     </div>
 </div>
+    <div class="ProgressBar" id="progressBar"></div>
+    <div class="ProgressText" id="progressText"></div>
+    <button id="toggleModeButton" class = "Delbutton">Delete Mode</button>
 <script src="javascript2.js"></script>
 </body>
 </html>

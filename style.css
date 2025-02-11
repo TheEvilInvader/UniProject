@@ -1,6 +1,6 @@
 body, html 
 {
-  height: 96%; /* removes scroll bar for some reason appears above 96% */
+  height: 100%;
   margin: 0;
 }
 
@@ -244,6 +244,29 @@ a
   color:#443ba8;
 }
 
+.ResetButtons 
+{
+  bottom: 500px;
+  left: 390px;
+  position: absolute;
+  z-index: 1;
+}
+
+.ResetButtons button 
+{
+  background-color: #4564E1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.ResetButtons button:hover 
+{
+  background-color: #2a4bbf;
+}
 /*---------Page1 and its variants------------------------------------------------------------------------------------------------*/
 /*---------Page2 and its variants------------------------------------------------------------------------------------------------*/
 
@@ -327,7 +350,7 @@ a
 
 .EventPopupContent input 
 {
-  width: 100%;
+  width: 96%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -352,6 +375,7 @@ a
 
 .EventList 
 {
+  width: 12px; /* for some reason aligns it to the left*/
   margin-top: 10px;
 }
 
@@ -373,6 +397,49 @@ a
 {
   color: #443ba8;
   font-size: 16px;
+}
+.ProgressBar 
+{
+  width: 80px;
+  height: 80px;
+  bottom: 610px;
+  right: 280px;
+  border-radius: 50%;
+  background: conic-gradient(#4564E1 0deg, #eee 0deg 360deg);
+  position: absolute;
+}
+
+.ProgressText 
+{
+  position: absolute;
+  bottom: 630px;
+  right: 280px;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #000106;
+}
+
+.ProgressBarC 
+{
+  width: 80px;
+  height: 80px;
+  top: 15px;
+  right: 130px;
+  border-radius: 50%;
+  background: conic-gradient(#4564E1 0deg, #eee 0deg 360deg);
+  position: absolute;
+}
+
+.ProgressTextC 
+{
+  position: absolute;
+  top: 53px;
+  right: 130px;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #000106;
 }
 /*---------Page2 and its variants------------------------------------------------------------------------------------------------*/
 /* page 3 will be on a different*/

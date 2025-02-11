@@ -22,6 +22,11 @@ body,html
     padding: 20px;
 }
 
+a
+{
+text-decoration: none;
+}
+
 .SmallBox 
 {
   color: #ffffff;
@@ -143,4 +148,44 @@ body,html
     line-height: 1.2;
     word-wrap: break-word;
 }
+
+.ProgressBar 
+{
+    width: 80px;
+    height: 80px;
+    bottom: 610px;
+    right: 280px;
+    border-radius: 50%;
+    background: conic-gradient(#4564E1 0deg, #eee 0deg 360deg);
+    position: absolute;
+}
+
+.ProgressText 
+{
+    position: absolute;
+    bottom: 630px;
+    right: 280px;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #000106;
+}
+.Delbutton
+{   
+    position:absolute;
+    background-color: #4564E1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    top:80px;
+    left:300px;
+}
+
+.Delbutton:hover 
+{
+    background-color: #2a4bbf;
+}
+
 /*---------Page 3 Boxes----------------------------------------------------------------------------------------------------------*/
