@@ -6,6 +6,27 @@ body, html
 
 /*---------General boxes to be used----------------------------------------------------------------------------------------------*/
 
+@font-face {
+  font-family: 'Futura PT';
+  src: url('fonts/FuturaPT-Book.woff2') format('woff2');
+  font-weight: 400; /* Normal */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('fonts/FuturaPT-Medium.woff2') format('woff2');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('fonts/FuturaPT-Bold.woff2') format('woff2');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
 .Font 
 {
   color: #443ba8;
@@ -130,8 +151,6 @@ margin-top: 5px;
 
 .Title 
 {
-  margin-left: 400px;
-  margin-top: 75px;
   color: #ffffff;
   text-align: center;
   font-size: 96px;
@@ -141,6 +160,8 @@ margin-top: 5px;
   width: 600px;
   border-radius: 10px;
   border: 8px solid #000000;
+  margin-left: 400px;
+  margin-top: 75px;
 }
   
 a 
@@ -151,8 +172,6 @@ a
   
 .Button 
 {
-  margin-left: 540px;
-  margin-top: 300px;
   text-decoration: none;
   display: inline-block;
   color: #ffffff;
@@ -164,6 +183,8 @@ a
   width: 300px;
   border-radius: 5px;
   border: 4px solid #000000;
+  margin-left: 540px;
+  margin-top: 300px;
 }
   
 .TempSolution
